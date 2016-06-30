@@ -32,7 +32,7 @@ namespace CdOrganizer
         var newSearch = Request.Form["searchName"];
         var allCDs = CD.GetAll();
         foreach(CD cd in allCDs) {
-          if (newSearch == cd.GetArtist())
+          if (cd.GetArtist().Contains(newSearch))
           {
             result.Add("Artist: " + cd.GetArtist());
             result.Add("Album: " + cd.GetAlbum());
