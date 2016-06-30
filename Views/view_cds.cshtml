@@ -1,0 +1,19 @@
+<h1>CD List</h1>
+@if (@Model.Count == 0)
+{
+  <h3>There are no CDs in your list.</h3>
+}
+<ol>
+
+@foreach (var cd in Model)
+{
+  <li>
+  <p>Artist: @cd.GetArtist()</p>
+  <p>Album: @cd.GetAlbum()</p>
+  </li>
+}
+</ol>
+
+<a href="/">Home</a>
+<a href="/add_cd">Add CD</a>
+<a href="/search">Search CDs</a>
