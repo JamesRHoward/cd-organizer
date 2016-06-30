@@ -29,10 +29,10 @@ namespace CdOrganizer
       };
       Post["/result"] = _ => {
         List<string> result = new List<string>{};
-        var newSearch = Request.Form["searchName"];
+        string searchTerm = Request.Form["searchName"];
         var allCDs = CD.GetAll();
         foreach(CD cd in allCDs) {
-          if (cd.GetArtist().Contains(newSearch))
+          if (cd.GetArtist().ToLower().Contains(searchTerm.ToLower()))
           {
             result.Add("Artist: " + cd.GetArtist());
             result.Add("Album: " + cd.GetAlbum());
